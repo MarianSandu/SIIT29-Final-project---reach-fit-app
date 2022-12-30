@@ -1,0 +1,44 @@
+.workout-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+/* .workout-list--title {
+  text-align: center;
+} */
+
+.list-titles-container {
+  margin: 5rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nutrition-list--title {
+  color: #999;
+  text-decoration: none;
+}
+
+.nutrition-list--title:hover {
+  color: #000;
+}
+
+.main-list-container {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  gap: 2rem;
+
+  width: 80%;
+  margin: 0 auto;
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+}

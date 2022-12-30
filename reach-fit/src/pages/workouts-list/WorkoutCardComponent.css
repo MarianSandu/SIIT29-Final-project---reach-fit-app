@@ -1,0 +1,33 @@
+.card-container {
+  border: 1px solid #999;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.workout-card--title {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.workout-card--container {
+  text-decoration: none;
+}
+
+.workout-card--container:link,
+.workout-card--container:visited {
+  color: #000;
+}
+
+.workout-card--container:hover,
+.workout-card--container:active {
+  color: #000;
+}
+
+.card-short-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+
+  margin-top: 1rem;
+}

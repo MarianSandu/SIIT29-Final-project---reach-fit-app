@@ -1,0 +1,158 @@
+{
+  "workouts": [
+    {
+      "name": "Arnold push",
+      "muscles": "Legs",
+      "equipment": "None",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 1
+    },
+    {
+      "name": "Crunches",
+      "muscles": "Biceps",
+      "equipment": "None",
+      "poster": "/images/Dumbells small.jpg",
+      "id": 2
+    },
+    {
+      "name": "Pull-ups",
+      "muscles": "Biceps",
+      "equipment": "None",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 3
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 4
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 5
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 6
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 7
+    },
+    {
+      "name": "pushes",
+      "muscles": "Shoulders",
+      "equipment": "None",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 8
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 9
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 10
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 11
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 12
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 13
+    },
+    {
+      "name": "Shoulder press",
+      "muscles": "Shoulders",
+      "equipment": "Dumbells",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 14
+    },
+    {
+      "name": "Lounges",
+      "muscles": "Legs",
+      "equipment": "None (body weight)",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 16
+    },
+    {
+      "name": "Lounges",
+      "muscles": "Legs",
+      "equipment": "None (body weight)",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 17
+    },
+    {
+      "name": "Lounges",
+      "muscles": "Legs",
+      "equipment": "None (body weight)",
+      "poster": "./images/Dumbells small.jpg",
+      "id": 18
+    }
+  ],
+  "nutrition": [],
+  "plan": [
+    {
+      "workouts": [
+        {
+          "id": 3,
+          "quantity": 3
+        },
+        {
+          "id": 2,
+          "quantity": 1
+        },
+        {
+          "id": 10,
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "quantity": 1
+        },
+        {
+          "id": 18,
+          "quantity": 1
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "users": [
+    {
+      "email": "test@mail.ro",
+      "password": "$2a$10$1WDZPrtcOmtj2X25OZw5eOByh1v503Qr7cRiOin3r3RY5Bfto7aB6",
+      "id": 1
+    }
+  ]
+}

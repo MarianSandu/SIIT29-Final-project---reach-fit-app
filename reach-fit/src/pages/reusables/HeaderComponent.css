@@ -1,0 +1,75 @@
+:root {
+  --main-text-color: #494949;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 10rem;
+
+  background-color: var(--main-app-color);
+  color: #eee;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+
+.logo {
+  width: 10rem;
+
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #eee;
+  padding: 0;
+}
+
+.logo-link {
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.logo-link:hover {
+  cursor: pointer;
+}
+
+.navbar li {
+  padding: 1rem 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #eee;
+}
+
+.link:hover {
+  background-color: var(--main-hovered-color);
+  cursor: pointer;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 0.7rem;
+
+  margin-left: auto;
+  width: 10rem;
+
+  font-size: 1.5rem;
+  color: rgb(169, 218, 169);
+}
+
+.socials i:hover {
+  color: #eee;
+  cursor: pointer;
+}

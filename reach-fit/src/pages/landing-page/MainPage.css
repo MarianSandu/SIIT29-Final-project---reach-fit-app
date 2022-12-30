@@ -1,0 +1,85 @@
+:root {
+  --main-text-color: #494949;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+}
+
+.main-container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+
+  position: relative;
+
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.main-img {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 0;
+}
+
+.app-name {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--main-text-color);
+  font-size: 1.2rem;
+}
+
+.motto {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 25vh;
+  width: 100%;
+}
+
+.btns-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+  width: 100%;
+  bottom: 5rem;
+}
+
+.btn {
+  border: none;
+  width: 8rem;
+  height: 2rem;
+  font-weight: 700;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn-tour {
+  background-color: var(--main-app-color);
+  color: #fff;
+}
+
+.btn-tour:hover {
+  background-color: var(--main-hovered-color);
+}
+
+.btn-login {
+  background-color: #e5e2e2;
+  color: var(--main-text-color);
+}
+
+.btn-login:hover {
+  background-color: #fff;
+}

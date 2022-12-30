@@ -1,0 +1,28 @@
+/* .workout-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 0;
+} */
+
+/* .workout-list--title {
+  text-align: center;
+} */
+
+/* .list-titles-container {
+  margin: 5rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.workouts-list {
+  color: #999;
+  text-decoration: none;
+}
+
+.workouts-list:hover {
+  color: #000;
+} */

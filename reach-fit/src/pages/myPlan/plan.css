@@ -1,0 +1,36 @@
+.plan-title {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 60%;
+  margin: 1rem auto 0;
+}
+
+.btn-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 3rem;
+  margin: 1rem auto 0;
+  border: none;
+  padding: 0;
+}
+
+.btn-toggle:hover {
+  background-color: #ddd;
+}
+
+.plan-hidden {
+  display: none;
+}
+
+.plan-visible {
+  display: flex;
+}
