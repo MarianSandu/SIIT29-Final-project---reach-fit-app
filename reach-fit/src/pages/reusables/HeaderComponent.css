@@ -30,14 +30,10 @@
   letter-spacing: 3px;
   color: #eee;
   padding: 0;
-}
-
-.logo-link {
-  text-decoration: none;
   margin-right: auto;
 }
 
-.logo-link:hover {
+.logo:hover {
   cursor: pointer;
 }
 

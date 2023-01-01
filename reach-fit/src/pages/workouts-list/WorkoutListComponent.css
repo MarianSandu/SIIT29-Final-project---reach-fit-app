@@ -1,3 +1,10 @@
+:root {
+  --footer-text-color: #444949;
+  --footer-background-color: #81bcc0;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+}
+
 .workout-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -36,9 +43,36 @@
   margin: 0 auto;
 }
 
+.search-container {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .filters-container {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
   margin-top: 2rem;
+  background-color: var(--footer-background-color);
+  padding: 0.7rem;
+}
+
+.filters-container h3 {
+  text-align: center;
+}
+
+.muscles-title,
+.equipment-title {
+  margin-top: 0.5rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--footer-text-color);
+}
+
+.filters-container div {
+  display: flex;
+  justify-content: space-between;
+
+  padding-left: 0.5rem;
+  width: 75%;
 }

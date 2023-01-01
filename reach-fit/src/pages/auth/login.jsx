@@ -1,6 +1,7 @@
-import { useState } from "react";
-import "./login.css";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import "./Login.css";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./Auth-context";
 
 export function Login() {
   const loginUrl = "http://localhost:3001/login";
@@ -10,6 +11,10 @@ export function Login() {
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const { auth, setAuth } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   function passwordChangeHandler(event) {
     setPassword(event.target.value);
@@ -52,13 +57,12 @@ export function Login() {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.accessToken);
+        setAuth(response);
+        navigate("/my-plan");
       });
   }
 
   function validatePassword(password) {
-    const specialCharacterList = ["!", "@", "#", "$", "%", "^", "&", "*"];
-
     if (!(password.length >= 6)) {
       setPasswordError("Password must contain at least 6 characters");
 
@@ -67,23 +71,14 @@ export function Login() {
 
     let hasUpperCaseCharacter = false;
     let hasNumberCharacter = false;
-    let hasSpecialCharacter = false;
 
     for (let letter of password) {
-      if (
-        !specialCharacterList.includes(letter) &&
-        Number.isNaN(Number(letter)) &&
-        letter === letter.toUpperCase()
-      ) {
+      if (Number.isNaN(Number(letter)) && letter === letter.toUpperCase()) {
         hasUpperCaseCharacter = true;
       }
 
       if (typeof Number(letter) === "number") {
         hasNumberCharacter = true;
-      }
-
-      if (specialCharacterList.includes(letter)) {
-        hasSpecialCharacter = true;
       }
     }
 
@@ -97,13 +92,7 @@ export function Login() {
       setPasswordError("Your password must have at least one number");
     }
 
-    if (!hasSpecialCharacter) {
-      setPasswordError(
-        "Your password must have at least one special character"
-      );
-    }
-
-    if (hasUpperCaseCharacter && hasNumberCharacter && hasSpecialCharacter) {
+    if (hasUpperCaseCharacter && hasNumberCharacter) {
       return true;
     }
 

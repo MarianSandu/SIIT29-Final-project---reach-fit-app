@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useEffect } from "react";
 import { HeaderComponent } from "../reusables/HeaderComponent";
 import { WorkoutCardComponent } from "./WorkoutCardComponent";
 import "./WorkoutListComponent.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../auth/Auth-context";
+import { FooterComponent } from "../reusables/FooterComponent";
 
 export function WorkoutListComponent() {
   const workoutsUrl = "http://localhost:3001/workouts";
@@ -12,13 +14,22 @@ export function WorkoutListComponent() {
   const [initialWorkouts, setInitialWorkouts] = useState([]);
   const [filters, setFilters] = useState({
     legs: false,
-    shoulders: false,
+    back: false,
+    abs: false,
+    chest: false,
+    arms: false,
   });
+
+  const { auth, logOut } = useContext(AuthContext);
 
   let timeout;
 
   useEffect(() => {
-    fetch(workoutsUrl)
+    fetch(workoutsUrl, {
+      headers: {
+        Authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((workoutsFromServer) => {
         setWorkouts(workoutsFromServer);
@@ -31,14 +42,31 @@ export function WorkoutListComponent() {
       const filteredWorkouts = initialWorkouts
         .filter((workout) => workout.muscles.toLowerCase().includes(searchTerm))
         .filter((workout) => {
-          if (filters.legs && filters.shoulders) {
-            return (
-              workout.muscles === "Legs" || workout.muscles === "Shoulders"
-            );
-          } else if (filters.legs) {
+          // if (
+          //   filters.legs &&
+          //   filters.back &&
+          //   filters.abs &&
+          //   filters.chest &&
+          //   filters.arms
+          // ) {
+          //   return (
+          //     workout.muscles === "Legs" ||
+          //     workout.muscles === "Back" ||
+          //     workout.muscles === "Abs" ||
+          //     workout.muscles === "Chest" ||
+          //     workout.muscles === "Arms"
+          //   );
+          // } else
+          if (filters.legs) {
             return workout.muscles === "Legs";
-          } else if (filters.shoulders) {
-            return workout.muscles === "Shoulders";
+          } else if (filters.back) {
+            return workout.muscles === "Back";
+          } else if (filters.abs) {
+            return workout.muscles === "Abs";
+          } else if (filters.chest) {
+            return workout.muscles === "Chest";
+          } else if (filters.arms) {
+            return workout.muscles === "Arms";
           } else {
             return true;
           }
@@ -63,10 +91,31 @@ export function WorkoutListComponent() {
     });
   }
 
-  function filterChangedShoulders(event) {
+  function filterChangedBack(event) {
     setFilters({
       ...filters,
-      shoulders: event.target.checked,
+      back: event.target.checked,
+    });
+  }
+
+  function filterChangedAbs(event) {
+    setFilters({
+      ...filters,
+      abs: event.target.checked,
+    });
+  }
+
+  function filterChangedChest(event) {
+    setFilters({
+      ...filters,
+      chest: event.target.checked,
+    });
+  }
+
+  function filterChangedArms(event) {
+    setFilters({
+      ...filters,
+      arms: event.target.checked,
     });
   }
 
@@ -81,23 +130,107 @@ export function WorkoutListComponent() {
         </Link>
       </header>
 
-      <label htmlFor="search">Search</label>
-      <input type="text" id="search" onChange={searchInputHandler} />
+      <div className="search-container">
+        <input
+          type="text"
+          id="search"
+          onChange={searchInputHandler}
+          placeholder="Search by muscle group"
+        />
+      </div>
 
       <div className="main-list-container">
         <aside className="filters-container">
-          <h3>Select by Filters:</h3>
+          <h3>Filter by:</h3>
+          <h4 className="muscles-title">Muscle group</h4>
           <div>
             <label htmlFor="legs">Legs</label>
-            <input type="checkbox" id="legs" onChange={filterChangedLegs} />
+            <input
+              type="radio"
+              name="muscle"
+              id="legs"
+              onChange={filterChangedLegs}
+            />
           </div>
 
           <div>
-            <label htmlFor="shoulders">Shoulders</label>
+            <label htmlFor="back">Back</label>
             <input
-              type="checkbox"
-              id="shoulders"
-              onChange={filterChangedShoulders}
+              type="radio"
+              name="muscle"
+              id="back"
+              onChange={filterChangedBack}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="abs">Abs</label>
+            <input
+              type="radio"
+              name="muscle"
+              id="abs"
+              onChange={filterChangedAbs}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="chest">Chest</label>
+            <input
+              type="radio"
+              name="muscle"
+              id="chest"
+              onChange={filterChangedChest}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="arms">Arms</label>
+            <input
+              type="radio"
+              name="muscle"
+              id="arms"
+              onChange={filterChangedArms}
+            />
+          </div>
+
+          <h4 className="equipment-title">Equipment</h4>
+          <div>
+            <label htmlFor="none">None</label>
+            <input
+              type="radio"
+              name="equipment"
+              id="none"
+              // onChange={filterChangedArms}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="dumbells">Dumbells</label>
+            <input
+              type="radio"
+              name="equipment"
+              id="dumbells"
+              // onChange={filterChangedArms}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="kettlebell">Kettlebell</label>
+            <input
+              type="radio"
+              name="equipment"
+              id="kettlebell"
+              // onChange={filterChangedArms}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="machine">Machine</label>
+            <input
+              type="radio"
+              name="equipment"
+              id="machine"
+              // onChange={filterChangedArms}
             />
           </div>
         </aside>
@@ -117,6 +250,8 @@ export function WorkoutListComponent() {
           })}
         </ul>
       </div>
+
+      <FooterComponent />
     </section>
   );
 }

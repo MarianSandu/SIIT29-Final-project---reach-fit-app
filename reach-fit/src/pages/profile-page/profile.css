@@ -1,0 +1,63 @@
+:root {
+  --footer-text-color: #444949;
+  --footer-background-color: #81bcc0;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+}
+
+.profile-btns-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 5rem;
+  margin-right: 1.5rem;
+}
+
+.edit-btn,
+.save-btn {
+  background-color: var(--main-app-color);
+  color: #fff;
+}
+
+.edit-btn:hover,
+.save-btn:hover {
+  background-color: var(--main-hovered-color);
+}
+
+.logout-btn:hover {
+  background-color: var(--footer-background-color);
+}
+
+.profile-section {
+  margin: 2rem auto 0;
+  padding: 1rem 0;
+  width: 60%;
+  background-color: var(--footer-background-color);
+}
+
+.details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+
+  width: 60%;
+  margin: 2rem auto;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.profile-title {
+  text-align: center;
+}
+
+.user-img {
+  width: 30%;
+  height: 30%;
+}

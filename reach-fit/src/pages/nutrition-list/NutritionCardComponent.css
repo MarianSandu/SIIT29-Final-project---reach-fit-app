@@ -4,10 +4,10 @@
   font-size: 0.8rem;
 }
 
-.workout-card--title {
+/* .workout-card--title {
   text-align: center;
   font-size: 1.2rem;
-}
+} */
 
 .workout-card--container {
   text-decoration: none;
@@ -30,4 +30,49 @@
   align-items: start;
 
   margin-top: 1rem;
+}
+
+.nutr-img {
+  width: 100px;
+  height: 100px;
+}
+
+.nutrition-card {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.nutr-category {
+  margin-top: 0.7rem;
+}
+
+.card-details span {
+  margin-left: 0.5rem;
+}
+
+.description-shortening {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 25rem;
+}
+
+.btn-nutr-container {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+.btn-add-diet:hover,
+.btn-more-info:hover {
+  cursor: pointer;
+  background-color: #ddd;
 }

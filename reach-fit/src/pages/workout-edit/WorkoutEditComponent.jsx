@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../auth/Auth-context";
 
 // type can be create/edit
 export function WorkoutEditComponent({ formType = "edit" }) {
   const workoutDetailsUrl = "http://localhost:3001/workouts";
   let { id } = useParams();
   const navigate = useNavigate();
+
+  const { auth } = useContext(AuthContext);
 
   // In React the following are controlled inputs
   const [name, setName] = useState("");
@@ -14,7 +17,11 @@ export function WorkoutEditComponent({ formType = "edit" }) {
 
   useEffect(() => {
     if (formType === "edit") {
-      fetch(`${workoutDetailsUrl}/${id}`)
+      fetch(`${workoutDetailsUrl}/${id}`, {
+        headers: {
+          Authorization: `Bearer ${auth.accessToken}`,
+        },
+      })
         .then((response) => response.json())
         .then((workout) => {
           setName(workout.name);
@@ -52,6 +59,7 @@ export function WorkoutEditComponent({ formType = "edit" }) {
       method: formType === "edit" ? "PATCH" : "POST",
       headers: {
         "Content-type": "application/json",
+        Authorization: `Bearer ${auth.accessToken}`,
       },
       body: JSON.stringify(body),
     }).then(() => {

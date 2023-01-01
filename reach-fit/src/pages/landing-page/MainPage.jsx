@@ -5,11 +5,14 @@ import "./MainPage.css";
 export function MainPage() {
   return (
     <div className="main-container">
-      <img
+      {/* <img
         src="/images/karsten-winegeart-0Wra5YYVQJE-unsplash.jpg"
         alt="Main site theme"
         className="main-img"
-      />
+      /> */}
+      <video autoPlay muted loop preload="auto" className="main-img">
+        <source src="/images/main-video.mp4" type="video/mp4" />
+      </video>
       <h1 className="motto">Reach your goals faster!</h1>
 
       <p className="app-name">REACH</p>

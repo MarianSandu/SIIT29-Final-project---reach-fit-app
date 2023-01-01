@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 export function HeaderComponent() {
   return (
-    <section>
+    <header>
       <ul className="navbar">
-        <Link to="/" className="logo-link">
-          <li className="logo">REACH</li>
-        </Link>
+        <li className="logo">REACH</li>
 
         <Link to="/my-plan" className="link">
           <li>myPlan</li>
@@ -25,7 +23,7 @@ export function HeaderComponent() {
           <li className="workouts-diet">Workouts/Diet</li>
         </Link>
 
-        <Link to="/account" className="link">
+        <Link to="/profile" className="link">
           <li>Profile</li>
         </Link>
         <li className="socials">
@@ -36,6 +34,6 @@ export function HeaderComponent() {
           <i className="fa-brands fa-twitter"></i>
         </li>
       </ul>
-    </section>
+    </header>
   );
 }

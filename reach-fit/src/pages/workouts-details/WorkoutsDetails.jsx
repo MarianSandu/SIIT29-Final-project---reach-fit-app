@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../auth/Auth-context";
+import { FooterComponent } from "../reusables/FooterComponent";
 import { HeaderComponent } from "../reusables/HeaderComponent";
 import "./WorkoutsDetails.css";
 
@@ -10,8 +12,14 @@ export function WorkoutsDetails() {
   const [workoutDetails, setWorkoutDetails] = useState({});
   const navigate = useNavigate();
 
+  const { auth } = useContext(AuthContext);
+
   useEffect(() => {
-    fetch(`${workoutDetailsUrl}/${id}`)
+    fetch(`${workoutDetailsUrl}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((workout) => setWorkoutDetails(workout));
   }, []);
@@ -19,6 +27,9 @@ export function WorkoutsDetails() {
   function deleteWorkout() {
     fetch(`${workoutDetailsUrl}/${id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${auth.accesToken}`,
+      },
     }).then(() => navigate("/"));
   }
 
@@ -38,6 +49,8 @@ export function WorkoutsDetails() {
 
       <button onClick={deleteWorkout}>Delete</button>
       <button onClick={editWorkout}>Edit</button>
+
+      <FooterComponent />
     </section>
   );
 }

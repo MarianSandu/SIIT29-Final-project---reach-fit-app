@@ -1,16 +1,24 @@
-/* .workout-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+:root {
+  --footer-text-color: #444949;
+  --footer-background-color: #81bcc0;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+  --main-text-color: #494949;
+}
+
+.nutrition-list {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   margin-top: 2rem;
   padding: 0;
-} */
+}
 
-/* .workout-list--title {
+.workout-list--title {
   text-align: center;
-} */
+}
 
-/* .list-titles-container {
+.list-titles-container {
   margin: 5rem auto 0;
   display: flex;
   justify-content: center;
@@ -25,4 +33,4 @@
 
 .workouts-list:hover {
   color: #000;
-} */
+}

@@ -1,3 +1,4 @@
+import { FooterComponent } from "../reusables/FooterComponent";
 import { HeaderComponent } from "../reusables/HeaderComponent";
 import "./plan.css";
 import { ShowWorkouts } from "./ShowWorkouts";
@@ -16,6 +17,8 @@ export function MyPlan() {
       <ShowWorkouts />
       <ShowWorkouts />
       <ShowWorkouts />
+
+      <FooterComponent />
     </section>
   );
 }

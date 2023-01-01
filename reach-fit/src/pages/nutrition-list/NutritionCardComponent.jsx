@@ -6,31 +6,31 @@ import { Link } from "react-router-dom";
 // Each item in the cart should be an object {}
 
 export function NutritionCardComponent(props) {
-  const planUrl = "http://localhost:3001/plan";
-  const { name, muscles, equipment, poster, id } = props;
+  const dietUrl = "http://localhost:3001/diet";
+  const { strMeal, strCategory, strInstructions, strMealThumb, idMeal } = props;
 
-  function addToPlan(event) {
+  function addToDiet(event) {
     event.preventDefault();
 
-    fetch(planUrl)
+    fetch(dietUrl)
       .then((response) => response.json())
-      .then((planList) => {
-        const [plan] = planList;
+      .then((dietList) => {
+        const [diet] = dietList;
 
-        if (plan) {
-          const workoutInPlan = plan.workouts.find(
-            (workout) => workout.id === id
+        if (diet) {
+          const mealInDiet = diet.nutrition.find(
+            (nutrition) => nutrition.id === idMeal
           );
 
-          if (workoutInPlan) {
-            workoutInPlan.quantity = workoutInPlan.quantity + 1;
+          if (mealInDiet) {
+            mealInDiet.quantity = mealInDiet.quantity + 1;
           } else {
-            plan.workouts.push({ id: id, quantity: 1 });
+            diet.nutrition.push({ id: idMeal, quantity: 1 });
           }
 
-          updatePlan(plan.id, plan.workouts);
+          updateDiet(diet.id, diet.nutrition);
         } else {
-          createPlan();
+          createDiet();
         }
       });
 
@@ -47,21 +47,21 @@ export function NutritionCardComponent(props) {
     //   });
   }
 
-  function updatePlan(planId, workouts) {
-    fetch(`${planUrl}/${planId}`, {
+  function updateDiet(dietId, nutrition) {
+    fetch(`${dietUrl}/${dietId}`, {
       method: "PATCH",
-      body: JSON.stringify({ workouts }),
+      body: JSON.stringify({ nutrition }),
       headers: {
         "Content-Type": "application/json",
       },
     });
   }
 
-  function createPlan() {
-    fetch(`${planUrl}`, {
+  function createDiet() {
+    fetch(`${dietUrl}`, {
       method: "POST",
       body: JSON.stringify({
-        workouts: [{ id: id, quantity: 1 }],
+        workouts: [{ id: idMeal, quantity: 1 }],
       }),
       headers: {
         "Content-Type": "application/json",
@@ -70,20 +70,34 @@ export function NutritionCardComponent(props) {
   }
 
   return (
-    <Link to={`/workouts-details/${id}`} className="workout-card--container">
+    <Link
+      to={`/nutrition-details/${idMeal}`}
+      className="workout-card--container"
+    >
       <li className="card-container">
-        <article className="workout-card">
-          <h3 className="workout-card--title">{name}</h3>
+        <article className="nutrition-card">
+          <img src={strMealThumb} alt="Meal thumb" className="nutr-img" />
 
-          <div className="card-short-description">
-            <span>Muscle group: {muscles}</span>
-            <span>Equipment needed: {equipment}</span>
+          <div className="card-details">
+            <h2 className="nutrition-card--title">{strMeal}</h2>
+
+            <p className="nutr-category">
+              Category: <span>{strCategory}</span>
+            </p>
+            <p className="nutr-description">
+              Descritpion:{" "}
+              <span className="description-shortening">{strInstructions}</span>
+            </p>
           </div>
 
-          <img src={poster} alt="Workout poster" />
-        </article>
+          <div className="btn-nutr-container">
+            <button className="btn btn-more-info">More Info</button>
 
-        <button onClick={addToPlan}>Add to myPlan</button>
+            <button onClick={addToDiet} className="btn btn-add-diet">
+              Add to myDiet
+            </button>
+          </div>
+        </article>
       </li>
     </Link>
   );

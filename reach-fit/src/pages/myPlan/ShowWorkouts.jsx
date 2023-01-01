@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../auth/Auth-context";
 
 export function ShowWorkouts({ text, className, onClick }) {
   const [workouts, setWorkouts] = useState([]);
+  const { auth, logOut } = useContext(AuthContext);
 
   useEffect(() => {
     const planUrl = "http://localhost:3001/plan";
     const workoutsUrl = "http://localhost:3001/workouts";
 
-    fetch(planUrl)
+    fetch(planUrl, {
+      headers: {
+        Authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((planList) => {
         const [plan] = planList;
 
-        fetch(workoutsUrl)
+        fetch(workoutsUrl, {
+          headers: {
+            Authorization: `Bearer ${auth.accessToken}`,
+          },
+        })
           .then((response) => response.json())
           .then((workouts) => {
             const planWorkouts = [];
@@ -49,7 +60,7 @@ export function ShowWorkouts({ text, className, onClick }) {
       </button>
       <ul className={`${visibility ? "plan-hidden" : "plan-visible"} plan`}>
         {workouts.map((workout) => (
-          <li>
+          <li key={workout.id}>
             <p>Name: {workout.name}</p>
             <p>Muscle Group: {workout.muscles}</p>
             <p>Equipment needed: {workout.equipment}</p>
