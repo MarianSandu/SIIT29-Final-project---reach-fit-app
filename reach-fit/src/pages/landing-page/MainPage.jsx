@@ -11,7 +11,7 @@ export function MainPage() {
         className="main-img"
       /> */}
       <video autoPlay muted loop preload="auto" className="main-img">
-        <source src="/images/main-video.mp4" type="video/mp4" />
+        <source src="/images/main-video2.mp4" type="video/mp4" />
       </video>
       <h1 className="motto">Reach your goals faster!</h1>
 

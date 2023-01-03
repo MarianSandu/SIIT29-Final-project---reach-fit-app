@@ -1,6 +1,8 @@
 import React from "react";
 import "./WorkoutCardComponent.css";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../auth/Auth-context";
+import { useContext } from "react";
 
 // Cart (myPlan page) is a list
 // Each item in the cart should be an object {}
@@ -8,6 +10,8 @@ import { Link } from "react-router-dom";
 export function WorkoutCardComponent(props) {
   const planUrl = "http://localhost:3001/plan";
   const { name, muscles, equipment, poster, id } = props;
+
+  const { auth, logOut } = useContext(AuthContext);
 
   function addToPlan(event) {
     event.preventDefault();
@@ -53,6 +57,7 @@ export function WorkoutCardComponent(props) {
       body: JSON.stringify({ workouts }),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${auth.accessToken}`,
       },
     });
   }
@@ -65,25 +70,32 @@ export function WorkoutCardComponent(props) {
       }),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${auth.accessToken}`,
       },
     });
   }
 
   return (
     <Link to={`/workouts-details/${id}`} className="workout-card--container">
-      <li className="card-container">
+      <li className="workout-card-container">
         <article className="workout-card">
           <h3 className="workout-card--title">{name}</h3>
 
           <div className="card-short-description">
             <span>Muscle group: {muscles}</span>
-            <span>Equipment needed: {equipment}</span>
+            <span>Equipment: {equipment}</span>
           </div>
 
-          <img src={poster} alt="Workout poster" />
+          <img
+            src={poster}
+            alt="Workout poster"
+            className="workout-details-img"
+          />
         </article>
 
-        <button onClick={addToPlan}>Add to myPlan</button>
+        <button className="btn workout-details-btn" onClick={addToPlan}>
+          Add to myPlan
+        </button>
       </li>
     </Link>
   );

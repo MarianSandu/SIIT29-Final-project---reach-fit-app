@@ -4,16 +4,18 @@ import { FooterComponent } from "../reusables/FooterComponent";
 import { HeaderComponent } from "../reusables/HeaderComponent";
 import { Link } from "react-router-dom";
 import "./Profile.css";
+import { useParams } from "react-router-dom";
 
 export function Profile() {
   const { auth, logOut } = useContext(AuthContext);
+  let { id } = useParams();
 
   return (
     <section>
       <HeaderComponent />
 
       <div className="profile-btns-container">
-        <Link to="/profile/edit">
+        <Link to={`/profile/${id}/edit`}>
           <button className="btn edit-btn">Edit</button>
         </Link>
         <button onClick={logOut} className="btn logout-btn">

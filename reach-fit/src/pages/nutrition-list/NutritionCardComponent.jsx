@@ -1,13 +1,15 @@
 import React from "react";
 import "./NutritionCardComponent.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 // Cart (myPlan page) is a list
 // Each item in the cart should be an object {}
 
 export function NutritionCardComponent(props) {
   const dietUrl = "http://localhost:3001/diet";
-  const { strMeal, strCategory, strInstructions, strMealThumb, idMeal } = props;
+  const { strMeal, strCategory, strInstructions, strMealThumb, id } = props;
+  const [addedError, setAddedError] = useState("");
 
   function addToDiet(event) {
     event.preventDefault();
@@ -18,39 +20,49 @@ export function NutritionCardComponent(props) {
         const [diet] = dietList;
 
         if (diet) {
-          const mealInDiet = diet.nutrition.find(
-            (nutrition) => nutrition.id === idMeal
-          );
+          const meailInDiet = diet.meals.find((meal) => meal.mealId === id);
 
-          if (mealInDiet) {
-            mealInDiet.quantity = mealInDiet.quantity + 1;
+          if (meailInDiet) {
+            // meailInDiet.quantity = meailInDiet.quantity + 1;
+            setAddedError("This meal was already added to the Diet");
           } else {
-            diet.nutrition.push({ id: idMeal, quantity: 1 });
+            diet.meals.push({ mealId: id, quantity: 1 });
           }
 
-          updateDiet(diet.id, diet.nutrition);
+          updateDiet(diet.id, diet.meals);
         } else {
           createDiet();
         }
+        console.log(dietList);
       });
 
-    // fetch(`${planUrl}?id=${id}`)
+    // fetch(dietUrl)
     //   .then((response) => response.json())
-    //   .then((workoutCarts) => {
-    //     const [workoutCart] = workoutCarts;
+    //   .then((dietList) => {
+    //     const [diet] = dietList;
 
-    //     if (workoutCart) {
-    //       updatePlanWorkoutQuantity(workoutCart);
+    //     if (diet) {
+    //       const mealInDiet = diet.nutrition.find(
+    //         (nutrition) => nutrition.id === idMeal
+    //       );
+
+    //       if (mealInDiet) {
+    //         mealInDiet.quantity = mealInDiet.quantity + 1;
+    //       } else {
+    //         diet.nutrition.push({ id: idMeal, quantity: 1 });
+    //       }
+
+    //       updateDiet(diet.id, diet.nutrition);
     //     } else {
-    //       createPlanWorkout();
+    //       createDiet();
     //     }
     //   });
   }
 
-  function updateDiet(dietId, nutrition) {
+  function updateDiet(dietId, meals) {
     fetch(`${dietUrl}/${dietId}`, {
       method: "PATCH",
-      body: JSON.stringify({ nutrition }),
+      body: JSON.stringify({ meals }),
       headers: {
         "Content-Type": "application/json",
       },
@@ -61,7 +73,7 @@ export function NutritionCardComponent(props) {
     fetch(`${dietUrl}`, {
       method: "POST",
       body: JSON.stringify({
-        workouts: [{ id: idMeal, quantity: 1 }],
+        meals: [{ mealId: id, quantity: 1 }],
       }),
       headers: {
         "Content-Type": "application/json",
@@ -70,10 +82,7 @@ export function NutritionCardComponent(props) {
   }
 
   return (
-    <Link
-      to={`/nutrition-details/${idMeal}`}
-      className="workout-card--container"
-    >
+    <Link to={`/nutrition-details/${id}`} className="workout-card--container">
       <li className="card-container">
         <article className="nutrition-card">
           <img src={strMealThumb} alt="Meal thumb" className="nutr-img" />
@@ -88,6 +97,7 @@ export function NutritionCardComponent(props) {
               Descritpion:{" "}
               <span className="description-shortening">{strInstructions}</span>
             </p>
+            <p className="added-to-diet">{addedError}</p>
           </div>
 
           <div className="btn-nutr-container">

@@ -9,7 +9,15 @@ export function NutritionListComponent() {
   const nutritionUrl = "http://localhost:3001/nutrition";
   // let workouts = [];
   const [nutrition, setNutrition] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [initialNutrition, setInitialNutrition] = useState([]);
+
+  const [filters, setFilters] = useState({
+    vegetarian: false,
+    vegan: false,
+    pescatarian: false,
+    keto: false,
+  });
 
   useEffect(() => {
     fetch(nutritionUrl, {
@@ -24,6 +32,64 @@ export function NutritionListComponent() {
       });
   }, []);
 
+  useEffect(() => {
+    let timeout = setTimeout(() => {
+      const filteredNutrition = initialNutrition
+        .filter((meal) => meal.strMeal.toLowerCase().includes(searchTerm))
+        .filter((meal) => {
+          if (filters.vegetarian) {
+            return meal.diet === "Vegetarian";
+          } else if (filters.vegan) {
+            return meal.diet === "Vegan";
+          } else if (filters.pescatarian) {
+            return meal.diet === "Pescatarian";
+          } else if (filters.keto) {
+            return meal.diet === "Keto";
+          } else {
+            return true;
+          }
+        });
+
+      setNutrition(filteredNutrition);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [searchTerm, initialNutrition, filters]);
+
+  function searchInputHandler(event) {
+    setSearchTerm(event.target.value.toLowerCase());
+  }
+
+  function filterChangedVegetarian(event) {
+    setFilters({
+      ...filters,
+      vegetarian: event.target.checked,
+    });
+  }
+
+  function filterChangedVegan(event) {
+    setFilters({
+      ...filters,
+      vegan: event.target.checked,
+    });
+  }
+
+  function filterChangedPescatarian(event) {
+    setFilters({
+      ...filters,
+      pescatarian: event.target.checked,
+    });
+  }
+
+  function filterChangedKeto(event) {
+    setFilters({
+      ...filters,
+      keto: event.target.checked,
+    });
+  }
+
   return (
     <section>
       <HeaderComponent />
@@ -35,6 +101,15 @@ export function NutritionListComponent() {
         <h1>Nutrition</h1>
       </header>
 
+      <div className="search-container">
+        <input
+          type="text"
+          id="search"
+          onChange={searchInputHandler}
+          placeholder="Search by recipe"
+        />
+      </div>
+
       <div className="main-list-container">
         <aside className="filters-container">
           <h3>Filter by:</h3>
@@ -44,8 +119,9 @@ export function NutritionListComponent() {
             <input
               type="radio"
               name="diet"
+              value="vegetarian"
               id="vegetarian"
-              // onChange={filterChangedLegs}
+              onChange={filterChangedVegetarian}
             />
           </div>
 
@@ -54,18 +130,9 @@ export function NutritionListComponent() {
             <input
               type="radio"
               name="diet"
+              value="vegan"
               id="vegan"
-              // onChange={filterChangedBack}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="gluten-free">Gluten-free</label>
-            <input
-              type="radio"
-              name="diet"
-              id="gluten-free"
-              // onChange={filterChangedAbs}
+              onChange={filterChangedVegan}
             />
           </div>
 
@@ -74,8 +141,9 @@ export function NutritionListComponent() {
             <input
               type="radio"
               name="diet"
+              value="pescatarian"
               id="pescatarian"
-              // onChange={filterChangedChest}
+              onChange={filterChangedPescatarian}
             />
           </div>
 
@@ -84,8 +152,9 @@ export function NutritionListComponent() {
             <input
               type="radio"
               name="diet"
+              value="keto"
               id="keto"
-              // onChange={filterChangedArms}
+              onChange={filterChangedKeto}
             />
           </div>
         </aside>
@@ -98,8 +167,8 @@ export function NutritionListComponent() {
                 strCategory={meal.strCategory}
                 strInstructions={meal.strInstructions}
                 strMealThumb={meal.strMealThumb}
-                id={meal.idMeal}
-                key={meal.idMeal}
+                id={meal.id}
+                key={meal.id}
               ></NutritionCardComponent>
             );
           })}

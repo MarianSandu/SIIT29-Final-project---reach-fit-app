@@ -1,6 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/Auth-context";
+import { FooterComponent } from "../reusables/FooterComponent";
+import { HeaderComponent } from "../reusables/HeaderComponent";
+import "../workouts-details/WorkoutsDetails.css";
+import "./WorkoutEditComponent.css";
 
 // type can be create/edit
 export function WorkoutEditComponent({ formType = "edit" }) {
@@ -72,45 +76,55 @@ export function WorkoutEditComponent({ formType = "edit" }) {
   }
 
   return (
-    <form>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input id="name" type="text" value={name} onChange={nameChange} />
+    <section>
+      <HeaderComponent />
+
+      <h1 className="exercise-details">Edit Exercise</h1>
+
+      <div className="edit-container">
+        <form className="edit-form">
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" value={name} onChange={nameChange} />
+
+          <label htmlFor="muscles">Muscle Group</label>
+          <select
+            id="muscles"
+            type="text"
+            value={muscles}
+            onChange={muscleChange}
+          >
+            <option value="null" disabled>
+              Please select a value
+            </option>
+            <option value="Back">Back</option>
+            <option value="Legs">Legs</option>
+            <option value="Arms">Arms</option>
+            <option value="Chest">Chest</option>
+            <option value="Abs">Abs</option>
+          </select>
+
+          <label htmlFor="equipment">Equipment</label>
+          <select
+            id="equipment"
+            type="text"
+            value={equipment}
+            onChange={equipmentChange}
+          >
+            <option value="null" disabled>
+              Please select a value
+            </option>
+            <option value="Dumbell">Dumbell</option>
+            <option value="None">None</option>
+            <option value="Kettlebell">KettleBell</option>
+            <option value="Machine">Machine</option>
+          </select>
+        </form>
+        <button className="btn edit-exercise-btn" onClick={submit}>
+          {formType === "edit" ? "Save changes" : "Create"}
+        </button>
       </div>
 
-      <div>
-        <label htmlFor="muscles">Muscle Group</label>
-        <select
-          id="muscles"
-          type="text"
-          value={muscles}
-          onChange={muscleChange}
-        >
-          <option value="null" disabled>
-            Please select a value
-          </option>
-          <option value="Shoulders">Shoulders</option>
-          <option value="Legs">Legs</option>
-          <option value="Biceps">Biceps</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="equipment">Equipment</label>
-        <select
-          id="equipment"
-          type="text"
-          value={equipment}
-          onChange={equipmentChange}
-        >
-          <option value="Dumbell">Dumbell</option>
-          <option value="None">None</option>
-        </select>
-      </div>
-
-      <button onClick={submit}>
-        {formType === "edit" ? "Save changes" : "Create"}
-      </button>
-    </form>
+      <FooterComponent />
+    </section>
   );
 }

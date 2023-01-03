@@ -1,7 +1,14 @@
+:root {
+  --main-text-color: #494949;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+}
+
 .card-container {
-  border: 1px solid #999;
+  border: 1px solid #aaa;
   padding: 1rem;
   font-size: 0.8rem;
+  border-radius: 5px;
 }
 
 /* .workout-card--title {
@@ -75,4 +82,12 @@
 .btn-more-info:hover {
   cursor: pointer;
   background-color: #ddd;
+}
+
+.added-to-diet {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--main-app-color);
+  font-weight: bold;
+  font-size: 0.9rem;
 }

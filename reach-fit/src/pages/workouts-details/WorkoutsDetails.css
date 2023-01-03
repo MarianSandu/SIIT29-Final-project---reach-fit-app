@@ -2,3 +2,43 @@
   margin-top: 5rem;
   text-align: center;
 }
+
+.exercise-details-container {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  justify-content: center;
+  align-items: stretch;
+
+  width: 75%;
+  margin: 1rem auto 0;
+}
+
+.exercise-details-img {
+  max-height: 100%;
+}
+
+.exercise-details-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+
+  background-color: var(--main-app-color);
+  color: #ddd;
+  padding: 1rem;
+}
+
+.exercise-details-title {
+  text-align: center;
+}
+
+.exercise-btns-container {
+  display: flex;
+  gap: 1rem;
+  margin: 4rem auto 0;
+}
+
+.exercise-add-toplan:hover,
+.exercise-edit:hover {
+  background-color: #ccc;
+}

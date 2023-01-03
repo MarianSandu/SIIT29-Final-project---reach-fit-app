@@ -42,13 +42,28 @@ export function WorkoutsDetails() {
       <HeaderComponent />
 
       <h1 className="exercise-details">Exercise Details</h1>
-      <h2>{workoutDetails.name}</h2>
-      <span>{workoutDetails.muscles}</span>
-      <span>{workoutDetails.equipment}</span>
-      <img src={workoutDetails.poster} alt="Workout poster" />
 
-      <button onClick={deleteWorkout}>Delete</button>
-      <button onClick={editWorkout}>Edit</button>
+      <article className="exercise-details-container">
+        <img
+          src={workoutDetails.poster}
+          alt="Workout poster"
+          className="exercise-details-img"
+        />
+        <div className="exercise-details-text">
+          <h2 className="exercise-details-title">{workoutDetails.name}</h2>
+          <span>Muscle group: {workoutDetails.muscles}</span>
+          <span>Equipment: {workoutDetails.equipment}</span>
+
+          <div className="exercise-btns-container">
+            <button className="btn exercise-add-toplan" onClick={deleteWorkout}>
+              Add to myPlan
+            </button>
+            <button className="btn exercise-edit" onClick={editWorkout}>
+              Edit
+            </button>
+          </div>
+        </div>
+      </article>
 
       <FooterComponent />
     </section>

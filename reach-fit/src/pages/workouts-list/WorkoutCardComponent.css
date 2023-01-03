@@ -1,6 +1,10 @@
-.card-container {
-  border: 1px solid #999;
-  padding: 1rem;
+.workout-card-container {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 1rem 1rem 0 1rem;
   font-size: 0.8rem;
 }
 
@@ -30,4 +34,19 @@
   align-items: start;
 
   margin-top: 1rem;
+}
+
+.workout-details-img {
+  margin: 0.5rem auto;
+  max-height: 136px;
+}
+
+.workout-details-btn {
+  background-color: var(--main-app-color);
+  color: #eee;
+  margin: 0.7rem auto;
+}
+
+.workout-details-btn:hover {
+  background-color: var(--main-hovered-color);
 }

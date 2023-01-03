@@ -15,6 +15,7 @@ import { Register } from "./pages/auth/Register";
 import { ProfileDetailsEdit } from "./pages/profile-page/ProfileDetailsEdit";
 import { MyDiet } from "./pages/myDiet/Diet";
 import { Progress } from "./pages/progress-page/Progress";
+import { NutritionDetails } from "./pages/nutrition-details/NutritionDetails";
 
 function App() {
   return (
@@ -23,7 +24,10 @@ function App() {
         <Routes>
           <Route path="/progress" element={<Progress />}></Route>
           <Route path="/my-diet" element={<MyDiet />}></Route>
-          <Route path="/profile/edit" element={<ProfileDetailsEdit />}></Route>
+          <Route
+            path="/profile/:id/edit"
+            element={<ProfileDetailsEdit />}
+          ></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route
             path="/profile"
@@ -50,6 +54,10 @@ function App() {
                 <NutritionListComponent />
               </CanNavigate>
             }
+          ></Route>
+          <Route
+            path="/nutrition-details/:id"
+            element={<NutritionDetails />}
           ></Route>
           <Route
             path="/workouts-details/:id"

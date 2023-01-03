@@ -1,0 +1,71 @@
+:root {
+  --main-text-color: #494949;
+  --main-app-color: #3b6b3b;
+  --main-hovered-color: #345234;
+  --footer-text-color: #444949;
+  --footer-background-color: #81bcc0;
+}
+
+.nutrition-details-title {
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.nutrition-details-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 0;
+
+  width: 75%;
+  /* height: 50%; */
+}
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  background-color: rgb(59, 107, 59, 0.85);
+  color: #eee;
+
+  height: 75%;
+  margin-left: -10rem;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.description-title {
+  text-align: center;
+}
+
+.description-instructions {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: auto;
+  max-height: 12em;
+  line-height: 1.2em;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-app-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-hovered-color);
+}
+
+.nutrition-details-btn {
+  margin: 2rem auto 1rem;
+  font-size: 0.9rem;
+}
+
+.nutrition-details-btn:hover {
+  background-color: #ccc;
+}
