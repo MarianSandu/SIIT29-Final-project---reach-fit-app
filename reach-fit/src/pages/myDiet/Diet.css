@@ -2,3 +2,26 @@
   text-align: center;
   margin-top: 5rem;
 }
+
+.diet-list-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+
+  /* background-color: #b4e0b4; */
+  border: 1px solid var(--main-text-color);
+  border-radius: 5px;
+  width: 60%;
+  margin: 1rem auto 0;
+  padding: 1rem;
+}
+
+.diet-list-category {
+  margin-top: 0.7rem;
+  font-size: 0.8rem;
+}
+
+.diet-list-description {
+  font-size: 0.8rem;
+}

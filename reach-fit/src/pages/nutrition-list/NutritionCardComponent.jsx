@@ -23,7 +23,6 @@ export function NutritionCardComponent(props) {
           const meailInDiet = diet.meals.find((meal) => meal.mealId === id);
 
           if (meailInDiet) {
-            // meailInDiet.quantity = meailInDiet.quantity + 1;
             setAddedError("This meal was already added to the Diet");
           } else {
             diet.meals.push({ mealId: id, quantity: 1 });
@@ -35,28 +34,6 @@ export function NutritionCardComponent(props) {
         }
         console.log(dietList);
       });
-
-    // fetch(dietUrl)
-    //   .then((response) => response.json())
-    //   .then((dietList) => {
-    //     const [diet] = dietList;
-
-    //     if (diet) {
-    //       const mealInDiet = diet.nutrition.find(
-    //         (nutrition) => nutrition.id === idMeal
-    //       );
-
-    //       if (mealInDiet) {
-    //         mealInDiet.quantity = mealInDiet.quantity + 1;
-    //       } else {
-    //         diet.nutrition.push({ id: idMeal, quantity: 1 });
-    //       }
-
-    //       updateDiet(diet.id, diet.nutrition);
-    //     } else {
-    //       createDiet();
-    //     }
-    //   });
   }
 
   function updateDiet(dietId, meals) {

@@ -4,7 +4,7 @@ import { AuthContext } from "../auth/Auth-context";
 
 export function ShowWorkouts({ text, className, onClick }) {
   const [workouts, setWorkouts] = useState([]);
-  const { auth, logOut } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   useEffect(() => {
     const planUrl = "http://localhost:3001/plan";

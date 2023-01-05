@@ -16,7 +16,12 @@ export function WorkoutCardComponent(props) {
   function addToPlan(event) {
     event.preventDefault();
 
-    fetch(planUrl)
+    fetch(planUrl, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
       .then((response) => response.json())
       .then((planList) => {
         const [plan] = planList;
@@ -37,18 +42,6 @@ export function WorkoutCardComponent(props) {
           createPlan();
         }
       });
-
-    // fetch(`${planUrl}?id=${id}`)
-    //   .then((response) => response.json())
-    //   .then((workoutCarts) => {
-    //     const [workoutCart] = workoutCarts;
-
-    //     if (workoutCart) {
-    //       updatePlanWorkoutQuantity(workoutCart);
-    //     } else {
-    //       createPlanWorkout();
-    //     }
-    //   });
   }
 
   function updatePlan(planId, workouts) {

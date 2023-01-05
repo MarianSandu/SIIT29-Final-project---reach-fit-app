@@ -2,55 +2,55 @@
   "workouts": [
     {
       "name": "Arnold push",
-      "muscles": "Legs",
-      "equipment": "None",
-      "poster": "/images/legs2.jpeg",
+      "muscles": "Chest",
+      "equipment": "Machine",
+      "poster": "/images/chest.jpeg",
       "id": 1
     },
     {
       "name": "Crunches",
-      "muscles": "Arms",
+      "muscles": "Abs",
       "equipment": "None",
-      "poster": "/images/arms.jpeg",
+      "poster": "/images/abs.jpeg",
       "id": 2
     },
     {
-      "name": "Inclined ",
-      "muscles": "Arms",
-      "equipment": "Machine",
-      "poster": "/images/arms.jpeg",
+      "name": "Leg Raises ",
+      "muscles": "Abs",
+      "equipment": "None",
+      "poster": "/images/abs.jpeg",
       "id": 3
     },
     {
-      "name": "Shoulder press",
+      "name": "Bent-over Row",
       "muscles": "Back",
       "equipment": "Dumbells",
       "poster": "/images/back.jpeg",
       "id": 4
     },
     {
-      "name": "Shoulder press",
+      "name": "Upright Raises",
       "muscles": "Chest",
       "equipment": "Dumbells",
       "poster": "/images/chest.jpeg",
       "id": 5
     },
     {
-      "name": "Shoulder press",
+      "name": "Russian twist",
       "muscles": "Abs",
       "equipment": "Dumbells",
       "poster": "/images/abs.jpeg",
       "id": 6
     },
     {
-      "name": "Shoulder press",
+      "name": "Plank",
       "muscles": "Abs",
-      "equipment": "Dumbells",
+      "equipment": "None",
       "poster": "/images/abs.jpeg",
       "id": 7
     },
     {
-      "name": "pushes",
+      "name": "Push Ups",
       "muscles": "Chest",
       "equipment": "None",
       "poster": "/images/chest.jpeg",
@@ -64,10 +64,10 @@
       "id": 9
     },
     {
-      "name": "Shoulder press",
-      "muscles": "Legs",
+      "name": "Bulgarian Deadlift",
+      "muscles": "Back",
       "equipment": "Dumbells",
-      "poster": "/images/legs2.jpeg",
+      "poster": "/images/back.jpeg",
       "id": 10
     },
     {
@@ -78,10 +78,10 @@
       "id": 11
     },
     {
-      "name": "Shoulder press",
-      "muscles": "Arms",
-      "equipment": "Dumbells",
-      "poster": "/images/arms.jpeg",
+      "name": "Leg Curl",
+      "muscles": "Legs",
+      "equipment": "Machine",
+      "poster": "/images/legs2.jpeg",
       "id": 12
     },
     {
@@ -118,6 +118,55 @@
       "equipment": "Kettlebell",
       "poster": "/images/legs2.jpeg",
       "id": 18
+    },
+    {
+      "name": "Squats",
+      "muscles": "Legs",
+      "equipment": "Machine",
+      "poster": "/images/legs2.jpeg",
+      "id": 19
+    },
+    {
+      "name": "Dead Lift",
+      "muscles": "Back",
+      "equipment": "Dumbells",
+      "poster": "/images/back.jpeg",
+      "id": 20
+    },
+    {
+      "name": "Leg Press",
+      "muscles": "Legs",
+      "equipment": "None",
+      "poster": "/images/legs2.jpeg",
+      "id": 21
+    },
+    {
+      "name": "Chest Fly",
+      "muscles": "Chest",
+      "equipment": "Machine",
+      "poster": "/images/chest.jpeg",
+      "id": 22
+    },
+    {
+      "name": "Triceps Extension",
+      "muscles": "Arms",
+      "equipment": "Machine",
+      "poster": "/images/arms.jpeg",
+      "id": 23
+    },
+    {
+      "name": "Biceps Curl",
+      "muscles": "Arms",
+      "equipment": "Dumbells",
+      "poster": "/images/arms.jpeg",
+      "id": 24
+    },
+    {
+      "name": "Back Extensions",
+      "muscles": "Back",
+      "equipment": "None",
+      "poster": "/images/back.jpeg",
+      "id": 25
     }
   ],
   "nutrition": [
@@ -5167,7 +5216,7 @@
       "workouts": [
         {
           "id": 3,
-          "quantity": 3
+          "quantity": 4
         },
         {
           "id": 2,
@@ -5183,6 +5232,14 @@
         },
         {
           "id": 18,
+          "quantity": 1
+        },
+        {
+          "id": 7,
+          "quantity": 2
+        },
+        {
+          "id": 4,
           "quantity": 1
         }
       ],
@@ -5205,6 +5262,22 @@
         },
         {
           "mealId": "52802",
+          "quantity": 1
+        },
+        {
+          "mealId": "52812",
+          "quantity": 1
+        },
+        {
+          "mealId": "52855",
+          "quantity": 1
+        },
+        {
+          "mealId": "52873",
+          "quantity": 1
+        },
+        {
+          "mealId": "52955",
           "quantity": 1
         }
       ],
@@ -5232,6 +5305,13 @@
       "firstName": "Cristina",
       "lastName": "Vaipan",
       "id": 3
+    },
+    {
+      "email": "alex@yahoo.com",
+      "password": "$2a$10$eVqY1bflHdSHcxk1WtgzauVcr0mPbebeJLky0/VN2b9ZeT3gMUQ.C",
+      "firstName": "alex",
+      "lastName": "sirghie",
+      "id": 4
     }
   ]
 }

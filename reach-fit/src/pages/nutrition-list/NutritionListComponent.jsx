@@ -66,6 +66,9 @@ export function NutritionListComponent() {
     setFilters({
       ...filters,
       vegetarian: event.target.checked,
+      vegan: false,
+      pescatarian: false,
+      keto: false,
     });
   }
 
@@ -73,6 +76,9 @@ export function NutritionListComponent() {
     setFilters({
       ...filters,
       vegan: event.target.checked,
+      vegetarian: false,
+      pescatarian: false,
+      keto: false,
     });
   }
 
@@ -80,6 +86,9 @@ export function NutritionListComponent() {
     setFilters({
       ...filters,
       pescatarian: event.target.checked,
+      vegetarian: false,
+      vegan: false,
+      keto: false,
     });
   }
 
@@ -87,6 +96,9 @@ export function NutritionListComponent() {
     setFilters({
       ...filters,
       keto: event.target.checked,
+      vegetarian: false,
+      vegan: false,
+      pescatarian: false,
     });
   }
 

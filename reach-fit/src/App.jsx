@@ -75,7 +75,14 @@ function App() {
             path="/create"
             element={<WorkoutEditComponent formType="create" />}
           ></Route>
-          <Route path="/my-plan" element={<MyPlan />}></Route>
+          <Route
+            path="/my-plan"
+            element={
+              <CanNavigate>
+                <MyPlan />
+              </CanNavigate>
+            }
+          ></Route>
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>

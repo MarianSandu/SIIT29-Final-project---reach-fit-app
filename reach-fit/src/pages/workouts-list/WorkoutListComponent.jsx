@@ -12,12 +12,19 @@ export function WorkoutListComponent() {
   const [workouts, setWorkouts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [initialWorkouts, setInitialWorkouts] = useState([]);
+
   const [filters, setFilters] = useState({
     legs: false,
     back: false,
     abs: false,
     chest: false,
     arms: false,
+  });
+  const [equipmentFilters, setEquipmentFilters] = useState({
+    none: false,
+    dumbells: false,
+    kettlebell: false,
+    machine: false,
   });
 
   const { auth, logOut } = useContext(AuthContext);
@@ -42,21 +49,6 @@ export function WorkoutListComponent() {
       const filteredWorkouts = initialWorkouts
         .filter((workout) => workout.muscles.toLowerCase().includes(searchTerm))
         .filter((workout) => {
-          // if (
-          //   filters.legs &&
-          //   filters.back &&
-          //   filters.abs &&
-          //   filters.chest &&
-          //   filters.arms
-          // ) {
-          //   return (
-          //     workout.muscles === "Legs" ||
-          //     workout.muscles === "Back" ||
-          //     workout.muscles === "Abs" ||
-          //     workout.muscles === "Chest" ||
-          //     workout.muscles === "Arms"
-          //   );
-          // } else
           if (filters.legs) {
             return workout.muscles === "Legs";
           } else if (filters.back) {
@@ -70,6 +62,19 @@ export function WorkoutListComponent() {
           } else {
             return true;
           }
+        })
+        .filter((workout) => {
+          if (equipmentFilters.none) {
+            return workout.equipment === "None";
+          } else if (equipmentFilters.dumbells) {
+            return workout.equipment === "Dumbells";
+          } else if (equipmentFilters.kettlebell) {
+            return workout.equipment === "Kettlebell";
+          } else if (equipmentFilters.machine) {
+            return workout.equipment === "Machine";
+          } else {
+            return true;
+          }
         });
 
       setWorkouts(filteredWorkouts);
@@ -78,7 +83,7 @@ export function WorkoutListComponent() {
     return () => {
       clearTimeout(timeout);
     };
-  }, [searchTerm, initialWorkouts, filters]);
+  }, [searchTerm, initialWorkouts, filters, equipmentFilters]);
 
   function searchInputHandler(event) {
     setSearchTerm(event.target.value.toLowerCase());
@@ -88,6 +93,10 @@ export function WorkoutListComponent() {
     setFilters({
       ...filters,
       legs: event.target.checked,
+      back: false,
+      abs: false,
+      chest: false,
+      arms: false,
     });
   }
 
@@ -95,6 +104,10 @@ export function WorkoutListComponent() {
     setFilters({
       ...filters,
       back: event.target.checked,
+      legs: false,
+      abs: false,
+      chest: false,
+      arms: false,
     });
   }
 
@@ -102,6 +115,10 @@ export function WorkoutListComponent() {
     setFilters({
       ...filters,
       abs: event.target.checked,
+      legs: false,
+      back: false,
+      chest: false,
+      arms: false,
     });
   }
 
@@ -109,6 +126,10 @@ export function WorkoutListComponent() {
     setFilters({
       ...filters,
       chest: event.target.checked,
+      legs: false,
+      back: false,
+      abs: false,
+      arms: false,
     });
   }
 
@@ -116,6 +137,50 @@ export function WorkoutListComponent() {
     setFilters({
       ...filters,
       arms: event.target.checked,
+      legs: false,
+      back: false,
+      abs: false,
+      chest: false,
+    });
+  }
+
+  function filterChangedNone(event) {
+    setEquipmentFilters({
+      ...equipmentFilters,
+      none: event.target.checked,
+      dumbells: false,
+      kettlebell: false,
+      machine: false,
+    });
+  }
+
+  function filterChangedDumbells(event) {
+    setEquipmentFilters({
+      ...equipmentFilters,
+      dumbells: event.target.checked,
+      none: false,
+      kettlebell: false,
+      machine: false,
+    });
+  }
+
+  function filterChangedKettlebell(event) {
+    setEquipmentFilters({
+      ...equipmentFilters,
+      kettlebell: event.target.checked,
+      dumbells: false,
+      none: false,
+      machine: false,
+    });
+  }
+
+  function filterChangedMachine(event) {
+    setEquipmentFilters({
+      ...equipmentFilters,
+      machine: event.target.checked,
+      dumbells: false,
+      kettlebell: false,
+      none: false,
     });
   }
 
@@ -200,7 +265,7 @@ export function WorkoutListComponent() {
               type="radio"
               name="equipment"
               id="none"
-              // onChange={filterChangedArms}
+              onChange={filterChangedNone}
             />
           </div>
 
@@ -210,7 +275,7 @@ export function WorkoutListComponent() {
               type="radio"
               name="equipment"
               id="dumbells"
-              // onChange={filterChangedArms}
+              onChange={filterChangedDumbells}
             />
           </div>
 
@@ -220,7 +285,7 @@ export function WorkoutListComponent() {
               type="radio"
               name="equipment"
               id="kettlebell"
-              // onChange={filterChangedArms}
+              onChange={filterChangedKettlebell}
             />
           </div>
 
@@ -230,7 +295,7 @@ export function WorkoutListComponent() {
               type="radio"
               name="equipment"
               id="machine"
-              // onChange={filterChangedArms}
+              onChange={filterChangedMachine}
             />
           </div>
         </aside>
