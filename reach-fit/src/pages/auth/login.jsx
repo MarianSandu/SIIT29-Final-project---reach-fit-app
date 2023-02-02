@@ -58,7 +58,7 @@ export function Login() {
       .then((response) => response.json())
       .then((response) => {
         setAuth(response);
-        navigate("/my-plan");
+        navigate("/workouts-list");
       });
   }
 

@@ -3,9 +3,6 @@ import "./NutritionCardComponent.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-// Cart (myPlan page) is a list
-// Each item in the cart should be an object {}
-
 export function NutritionCardComponent(props) {
   const dietUrl = "http://localhost:3001/diet";
   const { strMeal, strCategory, strInstructions, strMealThumb, id } = props;

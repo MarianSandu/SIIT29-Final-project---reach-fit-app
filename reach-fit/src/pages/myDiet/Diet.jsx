@@ -2,11 +2,14 @@ import { HeaderComponent } from "../reusables/HeaderComponent";
 import { FooterComponent } from "../reusables/FooterComponent";
 import "./Diet.css";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function MyDiet() {
   const dietUrl = "http://localhost:3001/diet";
   const nutritionUrl = "http://localhost:3001/nutrition";
+
+  let { mealId } = useParams();
+  const navigate = useNavigate();
 
   const [meals, setMeals] = useState([]);
 
@@ -30,13 +33,25 @@ export function MyDiet() {
       });
   }, []);
 
+  function deleteFromDiet() {
+    fetch(`${dietUrl}/1/${mealId}`, {
+      method: "DELETE",
+    }).then(() => navigate("/my-diet"));
+  }
+
+  const [expanded, setExpanded] = useState("none");
+
+  function expandedView(className) {
+    setExpanded(!expanded);
+  }
+
   return (
     <section>
       <HeaderComponent />
 
       <h1 className="diet-title">My Diet</h1>
 
-      <ul>
+      <ul className="my-diet-list">
         {meals.map((meal) => (
           <li key={meal.mealId} className="diet-list-container">
             <img
@@ -50,10 +65,26 @@ export function MyDiet() {
               <p className="diet-list-category">Category: {meal.strCategory}</p>
               <p className="diet-list-description">
                 Description:{" "}
-                <span className="description-shortening">
+                <span
+                  className={`${
+                    expanded ? "description-shortening" : "long-description"
+                  }`}
+                >
                   {meal.strInstructions}
                 </span>
               </p>
+            </div>
+            <div
+              className={`${
+                expanded ? "diet-buttons-expanded" : "diet-buttons"
+              }`}
+            >
+              <button onClick={expandedView} className="btn diet-more-info">
+                More Info
+              </button>
+              <button onClick={deleteFromDiet} className="btn diet-delete">
+                Delete
+              </button>
             </div>
           </li>
         ))}

@@ -11,12 +11,6 @@ export function MyPlan() {
       <h1 className="plan-title">My Plan</h1>
 
       <ShowWorkouts />
-      <ShowWorkouts />
-      <ShowWorkouts />
-      <ShowWorkouts />
-      <ShowWorkouts />
-      <ShowWorkouts />
-      <ShowWorkouts />
 
       <FooterComponent />
     </section>

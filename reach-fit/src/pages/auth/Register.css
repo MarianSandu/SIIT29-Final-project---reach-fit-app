@@ -4,16 +4,6 @@
   --main-hovered-color: #345234;
 }
 
-/* .register-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to bottom right, #86a377, #ecf5e7);
-} */
-
 .register-container {
   display: grid;
   grid-template-columns: 1fr 0.5fr;
@@ -32,8 +22,6 @@
 .register-form input {
   background-color: var(--main-app-color);
   border-color: #acacac;
-
-  /* margin-top: 0; */
 }
 
 .register-form input::placeholder {

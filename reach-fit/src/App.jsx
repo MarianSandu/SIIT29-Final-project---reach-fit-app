@@ -16,12 +16,14 @@ import { ProfileDetailsEdit } from "./pages/profile-page/ProfileDetailsEdit";
 import { MyDiet } from "./pages/myDiet/Diet";
 import { Progress } from "./pages/progress-page/Progress";
 import { NutritionDetails } from "./pages/nutrition-details/NutritionDetails";
+import { TourComponent } from "./pages/tour-page/TourComponent";
 
 function App() {
   return (
     <BrowserRouter>
       <AuthContextProvider>
         <Routes>
+          <Route path="/take-a-tour" element={<TourComponent />}></Route>
           <Route path="/progress" element={<Progress />}></Route>
           <Route path="/my-diet" element={<MyDiet />}></Route>
           <Route

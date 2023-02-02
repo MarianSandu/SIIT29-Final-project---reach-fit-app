@@ -13,8 +13,6 @@ export function Register() {
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [firstNameError, setFirstNameError] = useState("");
-  const [lastNameError, setLastNameError] = useState("");
 
   const navigate = useNavigate();
 
@@ -127,7 +125,6 @@ export function Register() {
               onChange={firstNameChangeHandler}
               placeholder="First Name"
             />
-            {/* <p className="warning-register">{firstNameError}</p> */}
           </div>
 
           <div className="reg-container">
@@ -137,7 +134,6 @@ export function Register() {
               onChange={lastNameChangeHandler}
               placeholder="Last Name"
             />
-            {/* <p className="warning-register">{lastNameError}</p> */}
           </div>
 
           <div className="reg-container">

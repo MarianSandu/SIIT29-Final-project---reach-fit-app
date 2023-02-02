@@ -34,16 +34,16 @@ export function Profile() {
           />
           <div className="profile-details">
             <p>First Name:</p>
-            <p>{auth.user.firstName}</p>
+            <p>Marian</p>
 
             <p>Last Name:</p>
-            <p>{auth.user.lastName}</p>
+            <p>Sandu</p>
 
             <p>Phone:</p>
-            <p></p>
+            <p>0755553210</p>
 
             <p>Address:</p>
-            <p></p>
+            <p>Artarului nr. 24</p>
 
             <p>E-mail:</p>
             <p>{auth.user.email}</p>

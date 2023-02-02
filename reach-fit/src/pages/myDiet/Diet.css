@@ -3,18 +3,23 @@
   margin-top: 5rem;
 }
 
+.my-diet-list {
+  padding: 0;
+  width: 60%;
+  margin: 0 auto;
+}
+
 .diet-list-container {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 1rem;
 
-  /* background-color: #b4e0b4; */
   border: 1px solid var(--main-text-color);
   border-radius: 5px;
-  width: 60%;
   margin: 1rem auto 0;
   padding: 1rem;
+  max-width: 100%;
 }
 
 .diet-list-category {
@@ -24,4 +29,52 @@
 
 .diet-list-description {
   font-size: 0.8rem;
+}
+
+.diet-list--container {
+  text-decoration: none;
+}
+
+.diet-list--container:link,
+.diet-list--container:visited {
+  color: #000;
+}
+
+.diet-list--container:hover,
+.diet-list--container:active {
+  color: #000;
+}
+
+.diet-buttons {
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.diet-buttons-expanded {
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+}
+
+.diet-more-info:hover {
+  background-color: #ddd;
+}
+
+.long-description {
+  display: block;
+  width: 35rem;
+}
+
+.diet-delete {
+  background-color: var(--main-app-color);
+  color: #ddd;
+}
+
+.diet-delete:hover {
+  background-color: var(--main-hovered-color);
 }

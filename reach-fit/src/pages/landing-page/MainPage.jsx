@@ -5,11 +5,6 @@ import "./MainPage.css";
 export function MainPage() {
   return (
     <div className="main-container">
-      {/* <img
-        src="/images/karsten-winegeart-0Wra5YYVQJE-unsplash.jpg"
-        alt="Main site theme"
-        className="main-img"
-      /> */}
       <video autoPlay muted loop preload="auto" className="main-img">
         <source src="/images/main-video2.mp4" type="video/mp4" />
       </video>

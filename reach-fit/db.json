@@ -5216,14 +5216,18 @@
       "workouts": [
         {
           "id": 3,
-          "quantity": 4
+          "quantity": 7
+        },
+        {
+          "id": 1,
+          "quantity": 2
         },
         {
           "id": 2,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "id": 10,
+          "id": 7,
           "quantity": 1
         },
         {
@@ -5231,12 +5235,8 @@
           "quantity": 1
         },
         {
-          "id": 18,
+          "id": 8,
           "quantity": 1
-        },
-        {
-          "id": 7,
-          "quantity": 2
         },
         {
           "id": 4,
@@ -5253,31 +5253,19 @@
           "quantity": 1
         },
         {
+          "mealId": "52914",
+          "quantity": 1
+        },
+        {
           "mealId": "52893",
           "quantity": 1
         },
         {
-          "mealId": "53049",
-          "quantity": 1
-        },
-        {
-          "mealId": "52802",
+          "mealId": "52807",
           "quantity": 1
         },
         {
           "mealId": "52812",
-          "quantity": 1
-        },
-        {
-          "mealId": "52855",
-          "quantity": 1
-        },
-        {
-          "mealId": "52873",
-          "quantity": 1
-        },
-        {
-          "mealId": "52955",
           "quantity": 1
         }
       ],
@@ -5291,27 +5279,6 @@
       "email": "test@mail.ro",
       "password": "$2a$10$QHZ0SKBAGkzv55EuCHFdZ.8Kt1KPKJmKO8BbAa9xW5ezTz/hdRQH.",
       "id": 1
-    },
-    {
-      "email": "marian@mail.ro",
-      "password": "$2a$10$k3Slc2.lPcqaDi/U8LVVr.BYadk4QM2jjDrnFHe885NSl3dka9PQu",
-      "firstName": "Marian",
-      "lastName": "Sandu",
-      "id": 2
-    },
-    {
-      "email": "cristina@mail.com",
-      "password": "$2a$10$g/7bEOKjfiEd/eA2E81g7.MEEKY9u2A9daMWJIBR.02mtpNdC/eJ6",
-      "firstName": "Cristina",
-      "lastName": "Vaipan",
-      "id": 3
-    },
-    {
-      "email": "alex@yahoo.com",
-      "password": "$2a$10$eVqY1bflHdSHcxk1WtgzauVcr0mPbebeJLky0/VN2b9ZeT3gMUQ.C",
-      "firstName": "alex",
-      "lastName": "sirghie",
-      "id": 4
     }
   ]
 }

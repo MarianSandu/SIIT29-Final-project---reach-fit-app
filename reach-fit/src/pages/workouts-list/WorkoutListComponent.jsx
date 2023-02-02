@@ -27,9 +27,7 @@ export function WorkoutListComponent() {
     machine: false,
   });
 
-  const { auth, logOut } = useContext(AuthContext);
-
-  let timeout;
+  const { auth } = useContext(AuthContext);
 
   useEffect(() => {
     fetch(workoutsUrl, {

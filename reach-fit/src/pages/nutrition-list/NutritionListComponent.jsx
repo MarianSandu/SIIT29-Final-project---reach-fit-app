@@ -7,7 +7,6 @@ import { FooterComponent } from "../reusables/FooterComponent";
 
 export function NutritionListComponent() {
   const nutritionUrl = "http://localhost:3001/nutrition";
-  // let workouts = [];
   const [nutrition, setNutrition] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [initialNutrition, setInitialNutrition] = useState([]);
@@ -21,9 +20,7 @@ export function NutritionListComponent() {
 
   useEffect(() => {
     fetch(nutritionUrl, {
-      headers: {
-        // Authorization: `Bearer ${auth.avvessToken}`,
-      },
+      headers: {},
     })
       .then((response) => response.json())
       .then((nutritionFromServer) => {

@@ -6,7 +6,6 @@ import { HeaderComponent } from "../reusables/HeaderComponent";
 import "../workouts-details/WorkoutsDetails.css";
 import "./WorkoutEditComponent.css";
 
-// type can be create/edit
 export function WorkoutEditComponent({ formType = "edit" }) {
   const workoutDetailsUrl = "http://localhost:3001/workouts";
   let { id } = useParams();
@@ -14,7 +13,6 @@ export function WorkoutEditComponent({ formType = "edit" }) {
 
   const { auth } = useContext(AuthContext);
 
-  // In React the following are controlled inputs
   const [name, setName] = useState("");
   const [muscles, setMuscles] = useState("");
   const [equipment, setEquipment] = useState("");

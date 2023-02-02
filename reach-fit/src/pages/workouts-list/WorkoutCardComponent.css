@@ -50,3 +50,15 @@
 .workout-details-btn:hover {
   background-color: var(--main-hovered-color);
 }
+
+.added-error {
+  text-align: center;
+  margin: 0.7rem auto;
+  color: var(--main-app-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.btn-added-err {
+  display: none;
+}

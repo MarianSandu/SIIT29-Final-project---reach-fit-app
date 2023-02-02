@@ -3,13 +3,12 @@ import "./WorkoutCardComponent.css";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../auth/Auth-context";
 import { useContext } from "react";
-
-// Cart (myPlan page) is a list
-// Each item in the cart should be an object {}
+import { useState } from "react";
 
 export function WorkoutCardComponent(props) {
   const planUrl = "http://localhost:3001/plan";
   const { name, muscles, equipment, poster, id } = props;
+  const [addedError, setAddedError] = useState("");
 
   const { auth, logOut } = useContext(AuthContext);
 
@@ -32,7 +31,10 @@ export function WorkoutCardComponent(props) {
           );
 
           if (workoutInPlan) {
-            workoutInPlan.quantity = workoutInPlan.quantity + 1;
+            setAddedError(
+              "This exercise was already added to the Workout Plan"
+            );
+            // workoutInPlan.quantity = workoutInPlan.quantity + 1;
           } else {
             plan.workouts.push({ id: id, quantity: 1 });
           }
@@ -89,6 +91,7 @@ export function WorkoutCardComponent(props) {
         <button className="btn workout-details-btn" onClick={addToPlan}>
           Add to myPlan
         </button>
+        <p className="added-error">{addedError}</p>
       </li>
     </Link>
   );

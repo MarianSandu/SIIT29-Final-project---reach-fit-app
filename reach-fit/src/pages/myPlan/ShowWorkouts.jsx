@@ -56,7 +56,7 @@ export function ShowWorkouts({ text, className, onClick }) {
     <>
       <button onClick={visbilityHandler} className="btn-toggle">
         <p>Monday</p>
-        <p>Muscles Group: Shoulders</p>
+        <p>Muscle Group: Shoulders</p>
       </button>
       <ul className={`${visibility ? "plan-hidden" : "plan-visible"} plan`}>
         {workouts.map((workout) => (
